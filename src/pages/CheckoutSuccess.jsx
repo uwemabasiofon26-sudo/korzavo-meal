@@ -50,7 +50,7 @@ export default function CheckoutSuccess() {
             to="/shop"
             className="inline-block font-mono text-xs tracking-widest uppercase text-vital-bright hover:text-cream transition-colors border border-vital-bright hover:bg-vital-bright hover:text-ink px-8 py-4 rounded-sm"
           >
-            Back to the Range
+            Back to the Menu
           </Link>
         </div>
       </div>
@@ -110,6 +110,20 @@ export default function CheckoutSuccess() {
                 </div>
               ))}
             </div>
+            {(order.free_breakfasts || order.free_soups || order.free_desserts) && (
+              <div className="mb-4 rounded-sm border border-neon/30 bg-neon/10 p-4 text-sm">
+                <div className="mb-2 font-mono text-[10px] uppercase tracking-widest text-neon">Your free extras</div>
+                {order.free_breakfasts && <div className="text-cream-dim">Breakfasts: <span className="text-cream">{order.free_breakfasts}</span></div>}
+                {order.free_soups && <div className="text-cream-dim">Soup: <span className="text-cream">{order.free_soups}</span></div>}
+                {order.free_desserts && <div className="text-cream-dim">Dessert cups: <span className="text-cream">{order.free_desserts}</span></div>}
+              </div>
+            )}
+            {order.delivery_address && (
+              <div className="mb-4 text-sm text-cream-dim">
+                <div className="mb-1 font-mono text-[10px] uppercase tracking-widest text-ash">Delivering to</div>
+                {order.delivery_name}<br />{order.delivery_address}
+              </div>
+            )}
             <div className="border-t border-line pt-4 flex items-center justify-between">
               <span className="font-mono text-xs tracking-widest uppercase text-ash">Total</span>
               <span className="font-display text-xl text-cream">{formatPrice(order.amount_total / 100)}</span>

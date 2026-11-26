@@ -241,6 +241,11 @@ export default function CartDrawer() {
               <span className="font-display text-xl text-cream">{formatPrice(subtotal)}</span>
             </div>
             <p className="text-ash text-xs">Prices include GST. The delivery fee is added at checkout.</p>
+            {import.meta.env.VITE_TEST_MODE === 'true' && (
+              <p className="rounded-sm border border-neon/40 bg-neon/10 p-2 text-[11px] leading-relaxed text-neon">
+                TEST MODE: no real payments. Use card 4242 4242 4242 4242, any future date and any CVC.
+              </p>
+            )}
             {blocker && <p className="text-xs text-vital-bright">{blocker}</p>}
             {checkoutError && (
               <p className="text-red-400 text-xs">{checkoutError}</p>

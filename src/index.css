@@ -172,3 +172,10 @@
   .animate-float, .animate-float-slow, .animate-glow, .animate-marquee-x, .animate-gradient-x, .animate-ping-soft, .text-gradient { animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* Mobile safety: nothing should ever push the page wider than the screen */
+html, body { max-width: 100%; }
+img, video, svg { max-width: 100%; }
+@media (max-width: 640px) {
+  .grid > * { min-width: 0; }
+}

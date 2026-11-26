@@ -32,6 +32,11 @@ export default async function handler(req, res) {
       payment_status: session.payment_status,
       customer_email: session.customer_details?.email,
       amount_total: session.amount_total,
+      free_breakfasts: session.metadata?.free_breakfasts || '',
+      free_soups: session.metadata?.free_soups || '',
+      free_desserts: session.metadata?.free_desserts || '',
+      delivery_name: session.metadata?.delivery_name || '',
+      delivery_address: session.metadata?.delivery_address || '',
       currency: session.currency,
       line_items: session.line_items?.data?.map((li) => ({
         description: li.description,

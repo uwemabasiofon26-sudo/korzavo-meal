@@ -98,7 +98,7 @@ function getSiteUrl() {
   return process.env.SITE_URL || 'https://korzavomeals.com';
 }
 
-async function sendViaResend({ from, to, subject, html }) {
+async function sendViaResend({ from, to, subject, html, replyTo }) {
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey) {
     throw new Error(`RESEND_API_KEY not set — cannot send email: ${subject}`);
@@ -110,7 +110,7 @@ async function sendViaResend({ from, to, subject, html }) {
       Authorization: `Bearer ${resendApiKey}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ from, to, subject, html }),
+    body: JSON.stringify({ from, to, subject, html, ...(replyTo ? { reply_to: replyTo } : {}) }),
   });
 
   if (!res.ok) {
@@ -253,6 +253,8 @@ async function sendCustomerConfirmation(session) {
     to: customerEmail,
     subject: `Your KORZAVO MEALS order is confirmed`,
     html: renderCustomerEmail(session),
+    // Customers who reply reach Uwem, who handles customer inquiries.
+    replyTo: process.env.CONTACT_NOTIFICATION_EMAIL || 'uwem@korzavo.com',
   });
 }
 

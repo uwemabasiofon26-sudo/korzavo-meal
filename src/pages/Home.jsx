@@ -140,13 +140,13 @@ export default function Home() {
 
       {/* WEEKLY PLAN */}
       <section className="px-6 py-20 md:py-28 border-t border-line">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <MealImage product={WEEKLY_PLAN} className="aspect-[2/1] rounded-sm border border-line" imgClassName="object-cover" />
-          <div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <MealImage product={WEEKLY_PLAN} className="min-w-0 aspect-[2/1] rounded-sm border border-line" imgClassName="object-cover" />
+          <div className="min-w-0">
             <div className="eyebrow mb-3">Weekly Signature Plan</div>
             <h2 className="font-display font-black text-4xl md:text-5xl text-cream leading-tight">7 Signature Meals</h2>
-            <div className="flex items-baseline gap-4 mt-5">
-              <span className="font-display font-black text-5xl text-neon">{formatPrice(WEEKLY_PLAN.price)}</span>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mt-5">
+              <span className="font-display font-black text-4xl sm:text-5xl text-neon">{formatPrice(WEEKLY_PLAN.price)}</span>
               <span className="text-ash line-through">{formatPrice(WEEKLY_PLAN.compare_at_price)}</span>
             </div>
             <p className="text-neon text-sm tracking-widest uppercase mt-2">You save {formatPrice(PLAN_SAVING)}</p>

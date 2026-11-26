@@ -39,10 +39,10 @@ export default function ProductDetail() {
             <dl className="grid grid-cols-2 gap-px bg-line border border-line rounded-sm mt-8 overflow-hidden">
               <div className="bg-ink-surface p-5">
                 <dt className="text-[10px] tracking-widest uppercase text-ash mb-1">
-                  {product.is_plan ? 'Includes' : product.portion_size ? 'Portion size' : 'Comes with'}
+                  {product.is_plan ? 'Includes' : product.portion_size ? 'Portion size' : 'With 3+ dinners'}
                 </dt>
                 <dd className="text-cream font-display font-bold text-xl">
-                  {product.portion_size || 'Free soup with 3+'}
+                  {product.portion_size || 'Free soup'}
                 </dd>
               </div>
               <div className="bg-ink-surface p-5">

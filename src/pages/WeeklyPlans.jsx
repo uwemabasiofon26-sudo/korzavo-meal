@@ -20,13 +20,13 @@ export default function WeeklyPlans() {
         <h1 className="font-display font-black text-5xl md:text-7xl text-cream leading-[1.05]">Your week, sorted.</h1>
         <p className="text-ash mt-6 max-w-2xl text-lg">Flexible weekly plans for individuals and teams — bold flavours and protein-rich food, ready for your everyday routine.</p>
 
-        <div className="grid lg:grid-cols-2 gap-10 mt-14 items-center">
-          <MealImage product={WEEKLY_PLAN} className="aspect-[2/1] rounded-sm border border-line" imgClassName="object-cover" />
-          <div className="border border-vital rounded-sm bg-ink-surface p-8 md:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14 items-center">
+          <MealImage product={WEEKLY_PLAN} className="min-w-0 aspect-[2/1] rounded-sm border border-line" imgClassName="object-cover" />
+          <div className="min-w-0 border border-vital rounded-sm bg-ink-surface p-6 sm:p-8 md:p-10">
             <div className="eyebrow mb-3">Weekly Signature Plan</div>
             <h2 className="font-display font-black text-3xl md:text-4xl text-cream">7 Signature Meals</h2>
-            <div className="flex items-baseline gap-4 mt-5">
-              <span className="font-display font-black text-5xl text-neon">{formatPrice(WEEKLY_PLAN.price)}</span>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mt-5">
+              <span className="font-display font-black text-4xl sm:text-5xl text-neon">{formatPrice(WEEKLY_PLAN.price)}</span>
               <span className="text-ash line-through">{formatPrice(WEEKLY_PLAN.compare_at_price)}</span>
             </div>
             <p className="text-neon text-sm tracking-widest uppercase mt-2">You save {formatPrice(PLAN_SAVING)}</p>
